@@ -2,9 +2,12 @@
     This script is designed to implement a faster workflow for bulk printing .pdf docs.
     It is also designed to handle .zip archives, provided they contain .pdf docs.
 
+    I wrote it out of anger at Adobe and Microsoft who broke Outlook's Quick Print in September 2023,
+    and have not yet fixed it for my end users, even though they say they absolutely have. Liars.
+
     Drop .pdf files into $pdfFolder location, and .zip files into $zipFolder location.
 
-    Unknown filetypes will be discarded, as will files with no known type.
+    Unknown filetypes will be discarded, as will subfolders. So, be careful.
 #>
 
 <#
