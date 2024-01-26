@@ -153,11 +153,10 @@ $processZIP =
 
         } elseif ($fileExt -eq ".zip") {
             # unzip and send files to $pdfFolder
-            Expand-Archive $zipFolder\$inboundFile -DestinationPath $pdfFolder
-            Write-InfoLog "Extracted files from $inboundFile to $pdfFolder"
-
             Start-Job -ScriptBlock {Expand-Archive $zipFolder\$inboundFile -DestinationPath $pdfFolder} -name "Unzip"
             Wait-Job -Name "Unzip"
+
+            Write-InfoLog "Extracted files from $inboundFile to $pdfFolder"
         
             # delete .zip after waiting for unzip
             Remove-Item $zipFolder\$inboundFile
